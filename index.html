@@ -126,16 +126,26 @@
     <script src="js/scripts.js"></script>
     <!-- Custom Script to push data layer event on Resume button click -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var resumeButton = document.querySelector('a[href="resume.html"]');
-        if (resumeButton) {
-          resumeButton.addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    var resumeButton = document.querySelector('a[href="resume.html"]');
+    
+    if (resumeButton) {
+        resumeButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent immediate navigation
+
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({ 'event': 'resume_open' });
-            console.log('Data Layer Event Pushed: resume_open');
-          });
-        }
-      });
-    </script>
+
+            console.log('Data Layer Event Pushed: resume_open'); // Debugging
+
+            // Delay navigation for 300ms to ensure the event is captured
+            setTimeout(function() {
+                window.location.href = "resume.html";
+            }, 300);
+        });
+    }
+});
+</script>
+
   </body>
 </html>
