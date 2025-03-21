@@ -8,12 +8,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5Q93SMPG');</script>
 <!-- End Google Tag Manager -->
+  
   <meta charset="UTF-8">
   <title>Candle Product</title>
   <script>
     // Automatically create a data layer if it doesn't exist
     window.dataLayer = window.dataLayer || [];
-    
+
+    // Function to push typed quantity event
+    function pushTypedQuantityEvent(value) {
+      var quantity = parseInt(value, 10);
+      // Push event only if quantity is a valid number
+      if (!isNaN(quantity)) {
+        window.dataLayer.push({
+          'event': 'TypedQuantity',
+          'quantity': quantity
+        });
+      }
+    }
+
     // Function to handle the checkout event
     function checkout() {
       // Get the quantity from the input
@@ -45,9 +58,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h1>Candle Product</h1>
   <p>Price: $10 per candle</p>
   
-  <!-- Quantity selection -->
+  <!-- Quantity selection with oninput event -->
   <label for="quantity">Quantity:</label>
-  <input type="number" id="quantity" value="1" min="1" />
+  <input type="number" id="quantity" value="1" min="1" 
+         oninput="pushTypedQuantityEvent(this.value)" />
 
   <br><br>
   
