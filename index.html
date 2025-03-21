@@ -40,7 +40,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       
       // Push the checkout event to the data layer
       window.dataLayer.push({
-        'event': 'checkout',
+        'event': 'check_out',
         'quantity': quantity,
         'totalPrice': total
       });
@@ -60,7 +60,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   <!-- Quantity selection with oninput event -->
   <label for="quantity">Quantity:</label>
-  <input type="number" id="quantity" value="1" min="1" 
+  <input type="number" id="quantity" min="1" 
          oninput="pushTypedQuantityEvent(this.value)" />
 
   <br><br>
