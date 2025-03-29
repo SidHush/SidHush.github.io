@@ -6,7 +6,17 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5Q93SMPG');</script>
+})(window,document,'script','dataLayer','GTM-5Q93SMPG');
+
+window.dataLayer = window.dataLayer || [];
+
+  function resumeDownloaded() {
+    window.dataLayer.push({
+      'event': 'ResumeDownloaded'
+    });
+  }
+    
+</script>
 <!-- End Google Tag Manager -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -24,16 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <script>
-  // Ensure dataLayer exists
-  window.dataLayer = window.dataLayer || [];
-
-  function resumeDownloaded() {
-    window.dataLayer.push({
-      'event': 'ResumeDownloaded'
-    });
-  }
-</script>
+    
     <body class="d-flex flex-column h-100 bg-light">
         <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q93SMPG"
