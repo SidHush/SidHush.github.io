@@ -686,6 +686,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NSWQZ65B');</script>
 <!-- End Google Tag Manager -->	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+
+	<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const addToCartButton = document.querySelector(".single_add_to_cart_button");
+  const sizeSelect = document.getElementById("pa_size");
+  const quantityInput = document.querySelector("input[name='quantity']");
+
+  addToCartButton.addEventListener("click", function () {
+    const selectedSize = sizeSelect.value;
+    const quantity = quantityInput.value;
+
+    // Push to dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "addToCart",
+      candleSize: selectedSize,
+      quantity: quantity
+    });
+
+    console.log("Data pushed to dataLayer:", { selectedSize, quantity });
+  });
+});
+</script>
+
 	<style>
 				#wpadminbar .quicklinks #wp-admin-bar-woocommerce-site-visibility-badge {
 					padding: 7px 0;
